@@ -8,6 +8,8 @@ interface ItemProps {
   option: string | null;
   height: number;
   index: number;
+  secondaryText?:string;
+  secondaryTextStyle:StyleProp<TextStyle>;
   currentScrollIndex: Animated.AnimatedAddition;
   visibleRest: number;
   rotationFunction: (x: number) => number;
@@ -25,7 +27,9 @@ const WheelPickerItem: React.FC<ItemProps> = ({
   currentScrollIndex,
   opacityFunction,
   rotationFunction,
-  scaleFunction
+  scaleFunction,
+  secondaryText,
+  secondaryTextStyle,
 }) => {
   const relativeScrollIndex = Animated.subtract(index, currentScrollIndex);
 
@@ -122,6 +126,7 @@ const WheelPickerItem: React.FC<ItemProps> = ({
       ]}
     >
       <Text style={textStyle}>{option}</Text>
+      {secondaryText ? <Text style={secondaryTextStyle}>{secondaryText}</Text> : null}
     </Animated.View>
   );
 };

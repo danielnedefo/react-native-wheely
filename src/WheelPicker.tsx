@@ -139,6 +139,7 @@ const WheelPicker: React.FC<Props> = ({
         )}
         onMomentumScrollEnd={handleMomentumScrollEnd}
         snapToOffsets={offsets}
+        nestedScrollEnabled={true}
         decelerationRate={decelerationRate}
         initialScrollIndex={selectedIndex}
         getItemLayout={(data, index) => ({
