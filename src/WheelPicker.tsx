@@ -29,6 +29,8 @@ interface Props {
   opacityFunction?: (x: number) => number;
   visibleRest?: number;
   decelerationRate?: 'normal' | 'fast' | number;
+  secondaryText?:string;
+  secondaryTextStyle:StyleProp<TextStyle>;
   flatListProps?: Omit<FlatListProps<string | null>, 'data' | 'renderItem'>;
 }
 
@@ -36,6 +38,8 @@ const WheelPicker: React.FC<Props> = ({
   selectedIndex,
   options,
   onChange,
+  secondaryText = "",
+  secondaryTextStyle = {},
   selectedIndicatorStyle = {},
   containerStyle = {},
   itemStyle = {},
@@ -154,6 +158,8 @@ const WheelPicker: React.FC<Props> = ({
             key={`option-${index}`}
             index={index}
             option={option}
+            secondaryText={secondaryText}
+            secondaryTextStyle={secondaryTextStyle}
             style={itemStyle}
             textStyle={itemTextStyle}
             height={itemHeight}
